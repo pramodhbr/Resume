@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pramodh B R - DevSecOps Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #232F3E;
+            background-color: #F8F9FA;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .resume-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #232F3E 0%, #FF9900 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="70" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="20" r="1" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .name {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem;
+        }
+
+        .contact-item::before {
+            content: '';
+            width: 16px;
+            height: 16px;
+            background: #FF9900;
+            border-radius: 50%;
+        }
+
+        .main-content {
+            padding: 40px 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #232F3E;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #FF9900;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #FF7F00;
+        }
+
+        .summary {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4A5568;
+            background: linear-gradient(135deg, #F7FAFC 0%, #EDF2F7 100%);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #FF9900;
+        }
+
+        .job {
+            margin-bottom: 30px;
+            background: #FDFDFD;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #232F3E;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .job-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #232F3E;
+        }
+
+        .company {
+            font-size: 1.2rem;
+            color: #FF9900;
+            font-weight: 500;
+        }
+
+        .duration {
+            font-size: 1rem;
+            color: #718096;
+            background: #F7FAFC;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid #E2E8F0;
+        }
+
+        .job-bullets {
+            list-style: none;
+            padding: 0;
+        }
+
+        .job-bullets li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            color: #4A5568;
+            line-height: 1.6;
+        }
+
+        .job-bullets li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #FF9900;
+            font-size: 0.8rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: #F7FAFC;
+            padding: 20px;
+            border-radius: 8px;
+            border-top: 3px solid #FF9900;
+        }
+
+        .skill-category h4 {
+            color: #232F3E;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .skill-category p {
+            color: #4A5568;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .cert-item {
+            background: linear-gradient(135deg, #FF9900 0%, #FF7F00 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(255, 153, 0, 0.3);
+        }
+
+        .project {
+            background: #FDFDFD;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 4px solid #FF9900;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .project-header {
+            margin-bottom: 15px;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #232F3E;
+            margin-bottom: 5px;
+        }
+
+        .project-meta {
+            color: #718096;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .tech-stack {
+            background: #EDF2F7;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+
+        .tech-stack strong {
+            color: #232F3E;
+            font-size: 0.9rem;
+        }
+
+        .tech-stack span {
+            color: #4A5568;
+            font-size: 0.9rem;
+        }
+
+        .education {
+            background: linear-gradient(135deg, #F7FAFC 0%, #EDF2F7 100%);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #232F3E;
+        }
+
+        .education h4 {
+            color: #232F3E;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .education p {
+            color: #4A5568;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .name {
+                font-size: 2.2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .main-content {
+                padding: 30px 20px;
+            }
+            
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                box-shadow: none;
+            }
+            
+            .resume-container {
+                box-shadow: none;
+            }
+            
+            .header {
+                background: #232F3E !important;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="name">Pramodh B R</h1>
+                <div class="contact-info">
+                    <div class="contact-item">pramodhbr29@gmail.com</div>
+                    <div class="contact-item">+91 7892514047</div>
+                    <div class="contact-item">GitHub</div>
+                    <div class="contact-item">LinkedIn</div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="section">
+                <h2 class="section-title">Professional Summary</h2>
+                <div class="summary">
+                    DevSecOps Engineer with 4+ years managing cloud infrastructure for 500+ applications. Reduced deployment time by 75% through CI/CD automation and decreased security incidents by 90% via HashiCorp Vault integration. AWS Solutions Architect with Kubernetes orchestration and security automation experience.
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Professional Experience</h2>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">DevSecOps Engineer</h3>
+                            <div class="company">Wipro Limited</div>
+                        </div>
+                        <div class="duration">September 2024 - Present</div>
+                    </div>
+                    <ul class="job-bullets">
+                        <li>Orchestrated HashiCorp Vault webhooks managing 2,000+ secrets across 15 environments, boosting operational efficiency by 60%</li>
+                        <li>Standardized production deployment processes using ITIL within ServiceNow, achieving 99.9% uptime across 50+ applications</li>
+                        <li>Onboarded 25+ tenants into Vault with tenant isolation, reducing security breaches by 85%</li>
+                        <li>Configured Splunk monitoring for 100+ services, reducing incident response time by 50%</li>
+                        <li>Mentored 12 team members on Vault operations, cutting onboarding time from 2 weeks to 3 days</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">DevOps Engineer</h3>
+                            <div class="company">Sirpi Products and Services Pvt Ltd</div>
+                        </div>
+                        <div class="duration">August 2022 - August 2024</div>
+                    </div>
+                    <ul class="job-bullets">
+                        <li>Automated EC2 lifecycle management using Lambda, reducing AWS costs by $12,000/month (60% savings)</li>
+                        <li>Optimized website performance using S3, CloudFront, Route53 with Terraform, improving load times by 45%</li>
+                        <li>Constructed alerting system (Grafana, Prometheus, Loki, Promtail) tracking 200+ metrics across 50+ services</li>
+                        <li>Engineered DOKS/EKS clusters with NGINX, Let's Encrypt, ArgoCD, Keycloak serving 1,000+ daily users</li>
+                        <li>Spearheaded ML project achieving 85% model accuracy, integrating MLflow for 20+ models in production</li>
+                        <li>Migrated 12+ client applications to cloud, reducing infrastructure costs by 35%</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">Data Associate</h3>
+                            <div class="company">Tika Data Services Ltd</div>
+                        </div>
+                        <div class="duration">August 2020 - July 2022</div>
+                    </div>
+                    <ul class="job-bullets">
+                        <li>Designed data pipelines processing 10GB+ daily data for chatbot development</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Cloud & Infrastructure</h4>
+                        <p>AWS, DigitalOcean, Hetzner, Heroku, Netlify, Terraform, Docker, Kubernetes, OpenShift</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Security & Monitoring</h4>
+                        <p>HashiCorp Vault, SonarQube, Docker Scout, Trivy, OWASP ZAP, Prometheus, Grafana, Loki, Promtail, Splunk</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>CI/CD & DevOps</h4>
+                        <p>Jenkins, GitHub Actions, AWS CodePipeline, ArgoCD, Git, GitHub, Puppet, NGINX</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Development & Data</h4>
+                        <p>Python (FastAPI, boto3), Bash, MongoDB, PostgreSQL, MySQL, Machine Learning, Data Analysis</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Certifications</h2>
+                <div class="certifications">
+                    <div class="cert-item">AWS Certified Solutions Architect – Associate</div>
+                    <div class="cert-item">AWS Certified SysOps Administrator – Associate</div>
+                    <div class="cert-item">HashiCorp Vault Associate</div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Key Projects</h2>
+                
+                <div class="project">
+                    <div class="project-header">
+                        <h3 class="project-title">Cloud Infrastructure Automation – Bike Reseller Platform</h3>
+                        <div class="project-meta">Role: DevOps Engineer | Company: Sirpi Products and Services Pvt Ltd</div>
+                    </div>
+                    <ul class="job-bullets">
+                        <li>Provisioned scalable infrastructure using Terraform managing 50+ AWS resources (S3, RDS, EKS)</li>
+                        <li>Configured ArgoCD for GitOps automation across 8 environments, reducing deployment errors by 70%</li>
+                        <li>Built CI/CD pipelines processing 200+ builds daily, cutting release time from 4 hours to 30 minutes</li>
+                        <li>Deployed distributed logging solution capturing 2TB+ daily logs, reducing MTTR by 60%</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <strong>Technologies:</strong> <span>AWS, Terraform, EKS, DOKS, Jenkins, GitHub Actions, ArgoCD, Docker, NGINX, Prometheus, Grafana, Vault, PostgreSQL, S3, RDS</span>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="project-header">
+                        <h3 class="project-title">Vault Operations Support – Core Banking Platform</h3>
+                        <div class="project-meta">Role: Cyber Security Analyst | Company: Wipro Limited</div>
+                    </div>
+                    <ul class="job-bullets">
+                        <li>Administered HashiCorp Vault operations across 20+ production environments handling 50,000+ daily transactions</li>
+                        <li>Resolved 500+ incidents via ServiceNow, maintaining 99.8% SLA compliance</li>
+                        <li>Monitored Vault health using Splunk across 100+ nodes, achieving 99.95% uptime</li>
+                        <li>Documented 25+ operational procedures, accelerating team knowledge transfer by 65%</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <strong>Technologies:</strong> <span>HashiCorp Vault, ServiceNow, Splunk, GitHub Actions, Bash, Linux, AWS EKS, GKE, OpenShift, Terraform</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="education">
+                    <h4>Bachelor of Technology – Mechanical Engineering</h4>
+                    <p>Vemana Institute of Technology, Bengaluru</p>
+                    <p>Grade: First Class (66.09%)</p>
+                    <p>Duration: 2013 - 2017</p>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
